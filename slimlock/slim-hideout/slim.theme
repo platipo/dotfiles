@@ -1,0 +1,41 @@
+# Thanks Thayer Williams
+# HOWTO: https://web.archive.org/web/20140414001555/http://slim.berlios.de/themes_howto.php
+
+# messages (ie: shutdown, session options, etc)
+msg_color         #eaeeee
+msg_font          Hack:size=11:bold
+msg_x             50%
+msg_y             70%
+
+# album: http://imgur.com/gallery/hvLyp
+# valid values:  stretch, tile, center, color
+background_style  center
+background_color  #000000
+
+# input box controls
+input_font        Hack:size=10
+input_color       #eaeeee
+# panel location
+input_panel_x     50%
+input_panel_y     50%
+input_name_x      53
+input_name_y      213
+# force single input box (gdm style)
+input_pass_x      -1
+input_pass_y      -1
+
+# username / password request (actual text)
+username_font     Hack:size=11:bold
+username_color    #eaeeee
+username_x        50
+username_y        190
+password_x        50
+password_y        190
+#username_msg      Username:
+#password_msg      Password:
+
+# welcome message
+#welcome_x         50%
+#welcome_y         22
+#welcome_font      Sans:size=10:bold:dpi=96
+#welcome_color     #ffffff

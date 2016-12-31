@@ -1,0 +1,16 @@
+# see man zathurarc
+# or https://pwmt.org/projects/zathura/documentation/
+set selection-clipboard    clipboard
+set adjust-open            width
+set font                   "inconsolata 10"
+set n-completion-items     12
+set recolor-lightcolor     "#151515"
+set recolor-darkcolor      "#E0E0E0"
+set recolor-keephue        true
+set recolor                true
+set inputbar-bg            "#151515"
+set inputbar-fg            "#FFFFFF"
+set statusbar-fg           "#B0B0B0"
+set statusbar-bg           "#202020"
+
+map t toggle_statusbar
