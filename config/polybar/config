@@ -1,0 +1,320 @@
+;=====================================================
+;
+;   To learn more about how to configure Lemonbuddy
+;   go to https://github.com/jaagr/lemonbuddy
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+[bar/top]
+width = 100%
+height = 32
+offset-x = 0
+offset-y = 0
+
+background = #ee2222224D
+foreground = #e7e0e7
+linecolor = ${bar/top.background}
+
+spacing = 1
+lineheight = 1
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = unifont:size=9.5;2
+font-1 = siji:pixelsize=10;0
+font-3 = tamzen:size=11;1
+;font-0 = NotoSans-Regular:size=10.5;0
+;font-1 = Material Icons:size=10;0
+;font-0 = Termsynu:size=8;-1
+font-2 = FontAwesome:size=12;3
+
+modules-left = wifi wired battery 
+modules-center = date
+modules-right = volume cpu memory
+
+tray-position = right
+
+[bar/bottom]
+bottom = true
+width = 100%
+height = 27
+
+background = ${bar/top.background}
+foreground = ${bar/top.foreground}
+linecolor = ${bar/top.background}
+
+spacing = 3
+lineheight = 2
+padding_right = 4
+module_margin_left = 0
+module_margin_right = 6
+
+font-0 = FontAwesome:size=12;-2
+font-1 = ${bar/top.font-0}
+font-2 = ${bar/top.font-1}
+
+modules-center = bspwm
+
+
+[module/bspwm]
+type = internal/bspwm
+format = <label-state>
+
+label-active =  " "
+label-active-padding = 1
+label-occupied =  " "
+label-occupied-padding = 1
+label-empty =  " "
+label-empty-padding = 1
+
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+format = <label> <ramp-coreload>
+label = CPU
+
+ramp-coreload-0 = ▁
+ramp-coreload-0-font = 3
+ramp-coreload-0-foreground = #aaff77
+ramp-coreload-1 = ▂
+ramp-coreload-1-font = 3
+ramp-coreload-1-foreground = #aaff77
+ramp-coreload-2 = ▃
+ramp-coreload-2-font = 3
+ramp-coreload-2-foreground = #aaff77
+ramp-coreload-3 = ▄
+ramp-coreload-3-font = 3
+ramp-coreload-3-foreground = #aaff77
+ramp-coreload-4 = ▅
+ramp-coreload-4-font = 3
+ramp-coreload-4-foreground = #fbc622
+ramp-coreload-5 = ▆
+ramp-coreload-5-font = 3
+ramp-coreload-5-foreground = #fba925
+ramp-coreload-6 = ▇
+ramp-coreload-6-font = 3
+ramp-coreload-6-foreground = #ff5555
+ramp-coreload-7 = █
+ramp-coreload-7-font = 3
+ramp-coreload-7-foreground = #ff5555
+
+[module/memory]
+type = internal/memory
+interval = 2
+
+format = <label> <bar-used>
+label = RAM
+
+bar-used-width = 15
+bar-used-foreground-0 = #55aa55
+bar-used-foreground-1 = #55aa55
+bar-used-foreground-2 = #f5a70a
+bar-used-foreground-3 = #ff5555
+bar-used-gradient = false
+bar-used-indicator = │
+bar-used-indicator-font = 2
+bar-used-indicator-foreground = #ff
+bar-used-fill = ━
+bar-used-fill-font = 2
+bar-used-empty = ━
+bar-used-empty-font = 2
+bar-used-empty-foreground = #444444
+
+
+[module/wifi]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+ping_interval = 10
+;udspeed-minwidth = 3
+
+format-connected = <ramp-signal> <label-connected>
+;label-connected = %essid% %{F#66}%local_ip%
+;label-connected = %{F#666}%{F#cc} %upspeed% %{F#666}%{F#cc} %downspeed%
+label-connected = %{O-6 F#666}%{O2 F#cc}  %essid%
+label-disconnected = %{F#666}%{F#cc} WiFi disc
+label-disconnected-foreground = #66
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = #666
+
+
+[module/wired]
+type = internal/network
+interface = enp1s0
+interval = 3.0
+
+label-connected = %{T3}%local_ip%%{T-}
+label-disconnected = %{T3}Eth disc%{T-}
+label-disconnected-foreground = #66
+
+
+
+[module/date]
+type = internal/date
+interval = 5
+date = %%{F#999}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
+date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
+
+
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+format = <ramp> <label>
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = #666
+
+
+[module/volume]
+type = internal/volume
+speaker-mixer = Speaker
+headphone-mixer = Headphone
+headphone-id = 9
+
+format-volume =  <ramp-volume> <label-volume>
+label-muted =  muted
+label-volume-foreground = ${BAR.foreground}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+
+
+
+[module/battery]
+type = internal/battery
+full-at = 98
+battery = BAT0
+adapter = AC
+
+format-charging = <animation-charging>   <label-charging> 
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+
+ramp-capacity-0 =  
+ramp-capacity-0-foreground = #f53c3c
+ramp-capacity-1 =  
+ramp-capacity-1-foreground = #ffa900
+ramp-capacity-2 =  
+ramp-capacity-3 =  
+ramp-capacity-4 =  
+
+bar-capacity-width = 10
+bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
+bar-capacity-fill = █
+bar-capacity-fill-foreground = #ddffffff
+bar-capacity-fill-font = 3
+bar-capacity-empty = █
+bar-capacity-empty-font = 3
+bar-capacity-empty-foreground = #44ffffff
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+
+[module/mpd]
+type = internal/mpd
+
+format-online = <label-time>  <bar-progress>  <label-song>  <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>
+format-online-background = #ee333333
+format-online-underline = #cc333333
+format-online-padding = 3
+
+format-offline = <label-offline>
+format-offline-foreground = #66
+
+label-offline = mpd is off
+
+label-song-maxlen = 45
+label-song-ellipsis = true
+
+icon-prev = 
+icon-seekb = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+icon-seekf = 
+; icon-prev = ⏮
+; icon-seekb = ⏪
+; icon-stop = ⏹
+; icon-play = ⏵
+; icon-pause = ⏸
+; icon-seekf = ⏩
+; icon-next = ⏭
+
+icon-random = 
+icon-repeat = 
+
+toggle-on-foreground = #e60053
+toggle-off-foreground = #66
+
+bar-progress-width = 15
+bar-progress-indicator = 
+bar-progress-indicator-foreground = #bb
+bar-progress-fill = ─
+bar-progress-fill-foreground = #bb
+bar-progress-fill-font = 3
+bar-progress-empty = ─
+bar-progress-empty-foreground = #44
+bar-progress-empty-font = 3
+
+label-time-foreground = #77
+
+
+[module/powermenu]
+type = custom/menu
+
+label-open = 
+label-close = 
+label-separator = /
+
+menu-0-0 = Terminate WM
+menu-0-0-foreground = #e60053
+menu-0-0-exec = bspc quit -1
+menu-0-1 = Reboot
+menu-0-1-foreground = #e60053
+menu-0-1-exec = menu-open-1
+menu-0-2 = Power off
+menu-0-2-foreground = #e60053
+menu-0-2-exec = menu-open-2
+
+menu-1-0 = Cancel
+menu-1-0-foreground = #e60053
+menu-1-0-exec = menu-open-0
+menu-1-1 = Reboot
+menu-1-1-foreground = #e60053
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = Power off
+menu-2-0-foreground = #e60053
+menu-2-0-exec = sudo poweroff
+menu-2-1 = Cancel
+menu-2-1-foreground = #e60053
+menu-2-1-exec = menu-open-0
+
+
+[module/counter]
+type = internal/counter
+format = <counter>
+interval = 0.1
+
+
+; vim:ft=dosini
