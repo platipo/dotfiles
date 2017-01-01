@@ -39,15 +39,7 @@ esac
 bspc rule -a feh state=floating follow=on
 bspc rule -a telegram-desktop state=floating follow=on
 bspc rule -a rofi state=floating follow=on
-bspc rule -a Zathura state=floating
+# bspc rule -a Zathura state=floating
 bspc rule -a vivaldi-stable desktop=^1
 
-# Xflux (for night-time coding)
-xflux -l 45.438158 -g 10.993742 &
-
-# soon replace w/ polybar
-if [ $(pgrep 'yabar') ]; then
-    pgrep 'yabar' | xargs kill -s 15
-fi
-
-sleep 1 && yabar &
+$XDG_CONFIG_HOME/polybar/launch.sh

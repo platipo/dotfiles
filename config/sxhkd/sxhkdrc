@@ -4,11 +4,11 @@
 
 # terminal emulator
 super + space
-	rofi -show run 
+	termite -c $XDG_CONFIG_HOME/termite/termite.conf
 
 # program launcher
 super + Return
-	termite -c $XDG_CONFIG_HOME/termite/termite.conf
+	rofi -show run 
 
 # make sxhkd reload its configuration files:
 super + Escape
