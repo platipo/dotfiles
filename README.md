@@ -4,10 +4,10 @@
 ### TODO
 - [ ] stow
 - [ ] vim & vimrc
-- [ ] finish bspwm conf
+- [ ] finish bspwm conf ("parametric")
 - [ ] implement sxhkdrc 
 - [ ] ranger
-- [ ] bspwm reaload on the fly
+- [x] bspwm reaload on the fly
 - [ ] try windowchef (maybe?)
 - [ ] decent README
 

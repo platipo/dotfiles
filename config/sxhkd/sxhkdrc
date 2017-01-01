@@ -22,16 +22,17 @@ super + Pause
 # volume manager
 #
 XF86AudioMute
-	toggle_mute
+   $HOME/bin/toggle_mute
 XF86Audio{Lower,Raise}Volume
-	{lower_vol,raise_vol}
+   $HOME/bin/{lower_vol,raise_vol}
+
 #
 # bspwm hotkeys
 #
 
 # quit bspwm normally
 super + alt + Escape
-	bspc wm -d > "$BSPWM_STATE" && bspc quit && bspwm -c $XDG_CONFIG_HOME/bspwm/bspwmrc
+   bspc wm --dump-state >$BSPWM_STATE && $XDG_CONFIG_HOME/bspwm/bspwmrc && bspc wm -o >/dev/null
 
 # close and kill
 super + {_,shift + }w
