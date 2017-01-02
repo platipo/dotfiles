@@ -4,7 +4,10 @@
 
 # terminal emulator
 super + space
-	termite -c $XDG_CONFIG_HOME/termite/termite.conf
+	termite -c $XDG_CONFIG_HOME/termite/config
+
+super + q
+   tdrop -h 40% -a termite
 
 # program launcher
 super + Return
@@ -22,9 +25,10 @@ super + Pause
 # volume manager
 #
 XF86AudioMute
-   $HOME/bin/toggle_mute
+   $HOME/bin/amix.sh -t
+
 XF86Audio{Lower,Raise}Volume
-   $HOME/bin/{lower_vol,raise_vol}
+   $HOME/bin/amix.sh {-l,-r}
 
 #
 # bspwm hotkeys
