@@ -14,3 +14,5 @@ set statusbar-fg           "#B0B0B0"
 set statusbar-bg           "#202020"
 
 map t toggle_statusbar
+map <C--> zoom out
+map <C-+> zoom in

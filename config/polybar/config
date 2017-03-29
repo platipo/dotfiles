@@ -1,9 +1,7 @@
 ;=====================================================
 ;
-;   To learn more about how to configure Lemonbuddy
-;   go to https://github.com/jaagr/lemonbuddy
-;
-;   The README contains alot of information
+;   To learn more about how to configure polybar
+;   go to https://github.com/jaagr/polybar/wiki
 ;
 ;=====================================================
 
@@ -14,7 +12,7 @@ offset-x = 0
 offset-y = 0
 
 background = #ee2222224D
-foreground = #e7e0e7
+foreground = ${env:BG_INVERTED:#e7e0e7}
 linecolor = ${bar/top.background}
 
 spacing = 1
@@ -24,13 +22,13 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = unifont:size=9.5;2
-font-1 = siji:pixelsize=10;0
-font-3 = tamzen:size=11;1
+font-0 = tamzen:size=9;4
+font-1 = unifont:pixelsize=9;2
+font-2 = FontAwesome:size=11;2
+;font-3 = tamzen:size=11;1
 ;font-0 = NotoSans-Regular:size=10.5;0
 ;font-1 = Material Icons:size=10;0
 ;font-0 = Termsynu:size=8;-1
-font-2 = FontAwesome:size=12;3
 
 modules-left = wifi wired battery 
 modules-center = date
@@ -54,10 +52,9 @@ module_margin_left = 0
 module_margin_right = 6
 
 font-0 = FontAwesome:size=12;-2
-font-1 = ${bar/top.font-0}
-font-2 = ${bar/top.font-1}
 
 modules-center = bspwm
+modules-right = powermenu
 
 
 [module/bspwm]
@@ -75,7 +72,7 @@ label-empty-padding = 1
 [module/cpu]
 type = internal/cpu
 interval = 0.5
-format = <label> <ramp-coreload>
+format = <label> %{T1}<ramp-coreload>%{T-}
 label = CPU
 
 ramp-coreload-0 = ▁
@@ -196,7 +193,7 @@ ramp-volume-3 = 
 
 [module/battery]
 type = internal/battery
-full-at = 98
+full-at = 99
 battery = BAT0
 adapter = AC
 
@@ -282,7 +279,7 @@ label-time-foreground = #77
 [module/powermenu]
 type = custom/menu
 
-label-open = 
+label-open = A
 label-close = 
 label-separator = /
 

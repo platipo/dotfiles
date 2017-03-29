@@ -31,11 +31,13 @@ wp_dir=$HOME/.wallpapers/
 case $(( RANDOM % (n_monitor + 1) )) in
    "0")
       wp_dir+=tiles/
-      feh --randomize -q --no-fehbg --bg-tile $wp_dir/*
+      wp_dir=$wp_dir$(ls "$wp_dir" | sort -R | head -1)
+      feh -q --no-fehbg --bg-tile $wp_dir
       ;;
    "2")
       wp_dir+=dual/
-      feh --bg-fill --no-xinerama -q --no-fehbg $wp_dir/*
+      wp_dir=$wp_dir$(ls "$wp_dir" | sort -R | head -1)
+      feh --bg-fill --no-xinerama -q --no-fehbg $wp_dir
       ;;
    *)
       wp_dir+=normal/
@@ -45,6 +47,7 @@ case $(( RANDOM % (n_monitor + 1) )) in
       feh -q --no-fehbg --bg-fill $wp_dir
       ;;
 esac
+export BG_INVERTED="$(convert $wp_dir -resize 1x1 txt:- | grep -o "#[A-F0-9]\+" | tr 0-9A-Fa-f fedcba9876543210543210)"
 unset wp_dir
 
 # redshift; better options at this point than xflux

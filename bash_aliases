@@ -1,7 +1,6 @@
-export LS_OPTIONS='--color=auto'
-alias l='ls $LS_OPTIONS'
-alias ll='ls -lh $LS_OPTIONS'
-alias la='ls -Alh $LS_OPTIONS'
+alias l='ls --color=auto --group-directories-first'
+alias ll='l -lh'
+alias la='l -Alh'
 
 # interactive&verbose aliases
 alias cp='cp -iv'
@@ -10,3 +9,5 @@ alias rm='rm -iv'
 alias mkdir='mkdir -pv'
 
 alias grep='grep --color'
+
+alias wifi-reload='systemctl restart netctl-auto@wlp2s0'

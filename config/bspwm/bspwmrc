@@ -20,8 +20,8 @@ bspc config focus_by_distance       true
 bspc config history_aware_focus     true
 bspc config focus_follows_pointer   true
 bspc config center_pseudo_tiled     true
-bspc config border_width            4
-bspc config window_gap		         17
+bspc config border_width            "$(echo "scale=0;2.5*$(echo $DISP_X)/$(echo $DISP_Y)" | bc)"
+bspc config window_gap		         16
 bspc config top_padding             $(($DISP_Y / 100 * 4))
 bspc config left_padding            $(($DISP_X * 0))
 bspc config right_padding           $(($DISP_X * 0))
@@ -41,10 +41,11 @@ case "$(echo "$monitors" | wc -l)" in
       ;;
 esac
 
+bspc rule -r *:*
 bspc rule -a feh state=floating follow=on
 bspc rule -a telegram-desktop state=floating follow=on
 bspc rule -a rofi state=floating follow=on
-# bspc rule -a Zathura state=floating
+bspc rule -a Zathura state=tiled
 bspc rule -a vivaldi-stable desktop=^1
 
 [[ -z "$(pidof polybar)" ]] && $XDG_CONFIG_HOME/polybar/launch.sh
