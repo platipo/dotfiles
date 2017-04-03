@@ -10,4 +10,7 @@ alias mkdir='mkdir -pv'
 
 alias grep='grep --color'
 
-alias wifi-reload='systemctl restart netctl-auto@wlp2s0'
+# just laziness
+alias wifi-reload='sudo systemctl restart netctl-auto@wlp2s0'
+
+alias vi='vim'

@@ -1,6 +1,7 @@
 [options]
-font = Hack 10.5
+#font = Hack 12
 #font = Fira Mono 11
+font = DejaVu Sans Mono Bold 14
 cursor_blink = system
 cursor_shape = block
 #background = rgba(31, 31, 31, 0.95)

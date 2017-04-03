@@ -6,11 +6,16 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
    unset f
 fi
 
+xrandr --dpi 96
+
 [[ -f ~/.Xresources ]] && xrdb -load ~/.Xresources
 
 # https://wiki.archlinux.org/index.php/Fonts
 xset +fp /usr/share/fonts/local
 xset +fp ~/.fonts && xset fp rehash
+# remapping Asus UX310Q keybard layout ;(
+# inspired by: https://wiki.archlinux.org/index.php/ASUS_N550JV#Keyboard
+[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 # https://wiki.archlinux.org/index.php/Display_Power_Management_Signaling
 # energy star features on
 xset +dpms
@@ -54,16 +59,23 @@ unset wp_dir
 redshift -c $XDG_CONFIG_HOME/redshift/redshift.conf &
 
 # sleep after 10 minutes of inactivity
-xautolock -time 10 -locker slimlock -detectsleep &
+xautolock -time 10 -locker "i3lock -f -e -r 8 -s 25" -detectsleep &
 
 # set traditional cursor
 xsetroot -cursor_name left_ptr &
 # Hide the mouse after a period of inactivity
-unclutter -grab -noevents &
+unclutter &
+# Automaic mount USB drives
 udiskie -Cva &
 
 # Shadows
 compton --config $XDG_CONFIG_HOME/compton/compton.conf -bCG # -i 0.2 &
+
+# Custom telegram directory
+mkdir /tmp/TelegramDownloads
+
+# Activate caffeine (just in case preventing locksecreen)
+caffeine &>/dev/null &
 
 # MPD daemon start (if no other user instance exists)
 #[ ! -s ~/.mpd/mpd.pid ] && mpd $HOME/.config/mpd/mpd.conf

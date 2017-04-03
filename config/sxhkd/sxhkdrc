@@ -19,16 +19,29 @@ super + Escape
 
 # make sxhkd lock screen
 super + Pause
-   xautolock -locknow || slimlock
+   xautolock -locknow
+
+# lock 'n' sleep
+super + shift + Pause
+   xautolock -locknow && sleep 1 ; systemctl suspend
+
 
 #
-# volume manager
+# Asus UX310Q Fn-F-Keys map
 #
+XF86KbdBrightness{Up,Down}
+   asus-kbd-backlight {up,down}
+
+# copied from https://aur.archlinux.org/packages/touchpad-toggle
+XF86TouchpadToggle
+   synclient TouchpadOff=$(synclient -l | grep -c 'TouchpadOff.*=.*0')
+
+# depends on ALSA
 XF86AudioMute
-   $HOME/bin/amix.sh -t
+   amixer set Master toggle >/dev/null
 
 XF86Audio{Lower,Raise}Volume
-   $HOME/bin/amix.sh {-l,-r}
+   amixer set Master 4%{-,+} >/dev/null
 
 #
 # bspwm hotkeys
