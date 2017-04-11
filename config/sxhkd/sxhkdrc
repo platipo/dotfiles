@@ -21,11 +21,6 @@ super + Escape
 super + Pause
    xautolock -locknow
 
-# lock 'n' sleep
-super + shift + Pause
-   xautolock -locknow && sleep 1 ; systemctl suspend
-
-
 #
 # Asus UX310Q Fn-F-Keys map
 #
@@ -42,6 +37,16 @@ XF86AudioMute
 
 XF86Audio{Lower,Raise}Volume
    amixer set Master 4%{-,+} >/dev/null
+
+XF86MonBrightness{Up,Down}
+   xbacklight -{inc,dec} 5
+
+# lock 'n' sleep
+XF86Sleep
+   xautolock -locknow && sleep 1 ; systemctl suspend
+
+# blacks screen, if you can get keycode
+# if [[ "$(xbacklight -get)" == '0.000000' ]]; then xbacklight -set "${BaLi:-50}"; else BaLi="$(xbacklight -get)" && echo $BaLi && xbacklight -set 0; fi
 
 #
 # bspwm hotkeys

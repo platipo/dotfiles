@@ -1,21 +1,11 @@
 #!/bin/sh
-if [ -d /etc/X11/xinit/xinitrc.d ] ; then
-   for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
-      [ -x "$f" ] && . "$f"
-   done
-   unset f
-fi
 
-xrandr --dpi 96
-
-[[ -f ~/.Xresources ]] && xrdb -load ~/.Xresources
+#[[ -f ~/.Xresources ]] && xrdb -load ~/.Xresources
 
 # https://wiki.archlinux.org/index.php/Fonts
-xset +fp /usr/share/fonts/local
-xset +fp ~/.fonts && xset fp rehash
-# remapping Asus UX310Q keybard layout ;(
-# inspired by: https://wiki.archlinux.org/index.php/ASUS_N550JV#Keyboard
-[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+#xset +fp /usr/share/fonts/local
+#xset +fp ~/.fonts && xset fp rehash
+
 # https://wiki.archlinux.org/index.php/Display_Power_Management_Signaling
 # energy star features on
 xset +dpms
@@ -66,7 +56,7 @@ xsetroot -cursor_name left_ptr &
 # Hide the mouse after a period of inactivity
 unclutter &
 # Automaic mount USB drives
-udiskie -Cva &
+#udiskie -Cva &
 
 # Shadows
 compton --config $XDG_CONFIG_HOME/compton/compton.conf -bCG # -i 0.2 &

@@ -4,6 +4,9 @@ if [[ -e "$BSPWM_STATE" ]] ; then
    #pgrep polybar && pkill -SIGNTERM polybar
    #pgrep sxhkd && pkill -SIGTERM sxhkd
    bspc wm --load-state "$BSPWM_STATE" && rm "$BSPWM_STATE"
+else
+   termite &
+   xautolock -locknow
 fi
 
 [[ -z "$(pidof sxhkd)" ]] && sxhkd -c $XDG_CONFIG_HOME/sxhkd/sxhkdrc &
@@ -14,7 +17,6 @@ DISP_Y="$(xrandr -q | head -1 | awk -F' ' '{print $10}' | sed 's/[^0-9]//g')"
 border="$(echo "scale=0;2.8*$(echo $DISP_X)/$(echo $DISP_Y)" | bc)"
 
 bspc config split_ratio             0.5
-# cleanup needed
 bspc config borderless_monocle      true
 bspc config gapless_monocle         true
 bspc config focus_by_distance       true
@@ -22,7 +24,7 @@ bspc config history_aware_focus     true
 bspc config focus_follows_pointer   true
 bspc config center_pseudo_tiled     false
 bspc config border_width            $border
-bspc config window_gap		    "$(echo "scale=0;4.5*$border" | bc)"
+bspc config window_gap              "$(echo "scale=0;4.5*$border" | bc)"
 bspc config top_padding             $(($DISP_Y / 100 * 4))
 bspc config left_padding            $(($DISP_X * 0))
 bspc config right_padding           $(($DISP_X * 0))
