@@ -1,6 +1,9 @@
 ## dotfiles
 > Just a mere backup of my aliases
 
+### Preview
+![Alt text](https://raw.github.com/platipo/dotfiles/master/screenshot.png "screen")
+
 ### Installation
 Why install them and mess your things up when you can link them? `Magic.sh` will link all files for you
 
@@ -13,10 +16,10 @@ Also it will install minimal vim plugins in `~/.vim/bundle` like
 - [contrastneed-theme](https://github.com/albertocg/contrastneed-theme)
 
 ### Things you should install
-* [bspwm](https://github.com/baskerville/bspwm) - the WM
-* [sxhkd](https://github.com/baskerville/sxhkd) - hotkey for bspwm
+* [bspwm](https://github.com/baskerville/bspwm) - WM
+* [sxhkd](https://github.com/baskerville/sxhkd) - WM hotkey daemon
 * [vim](https://github.com/vim/vim) - editor
-* [redshift](https://github.com/jonls/redshift) - color temperature regulator 
+* [redshift](https://github.com/jonls/redshift) - screen color temperature regulator 
 * [rofi](https://github.com/DaveDavenport/rofi) - window switcher and application launcher
 * [zathura](https://github.com/pwmt/zathura) - PDF viewer
 * [compton](https://github.com/chjj/compton) - compositor
@@ -29,10 +32,10 @@ Also it will install minimal vim plugins in `~/.vim/bundle` like
 ### TODO
 - [x] decent polybar (credits to [jaagr](https://github.com/jaagr/dots/tree/master/.local/etc/themer/themes/dracula))
 - [x] vim & vimrc (sort of)
-- [ ] finish bspwm conf (again sort of)
+- [x] finish bspwm conf (again sort of)
+- [x] bspwm reaload on the fly
 - [x] implement sxhkdrc
 - [ ] ranger
-- [x] bspwm reaload on the fly
 - [ ] decent README
 
 ### Inspirations
@@ -44,5 +47,4 @@ Also it will install minimal vim plugins in `~/.vim/bundle` like
 
 [amix's vimrc](https://github.com/amix/vimrc)
 
-### Preview
-![Alt text](https://raw.github.com/platipo/dotfiles/master/screenshot.png "screen")
+[jaagr theme](https://github.com/jaagr/dots/tree/master/.local/etc/themer/themes/dracula)
