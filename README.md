@@ -27,7 +27,7 @@ Also it will install minimal vim plugins in `~/.vim/bundle` like
 * [feh](https://github.com/derf/feh) - image viewer
 
 ### TODO
-- [ ] decent polybar
+- [x] decent polybar (credits to [jaagr](https://github.com/jaagr/dots/tree/master/.local/etc/themer/themes/dracula))
 - [x] vim & vimrc (sort of)
 - [ ] finish bspwm conf (again sort of)
 - [x] implement sxhkdrc
