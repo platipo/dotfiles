@@ -1,8 +1,24 @@
-if &compatible
-  set nocompatible  " Be iMproved
-endif
-set termguicolors   " enable true colors support
+" -------------------------------------
+"  basic setup
+" -------------------------------------
+" use vim not vi
+set nocompatible
+" enable true colors support
+set termguicolors
 set t_Co=256
+" numbers on the right
+set number
+" enable filetype plugins
+filetype plugin on
+filetype indent on
+" enable syntax highlighting
+syntax enable
+" dig down into subdirs
+" provides: partial :find match and fuzzy search
+set path+=**
+" display all completion possibilities
+set wildmenu
+" -------------------------------------
 
 " -------------------------------------
 "  pathogen
@@ -11,15 +27,10 @@ execute pathogen#infect()
 " indentLine: https://github.com/Yggdroot/indentLine
 let g:indentLine_char = '·'
 let g:indentLine_color_term = 241
+" color scheme is loaded in plugins
+colorscheme contrastneed
 " -------------------------------------
 
-set number
-" Enable filetype plugins
-filetype plugin on
-filetype indent on
-" Enable syntax highlighting
-syntax enable
-colorscheme contrastneed
 
 " -------------------------------------
 " map
@@ -29,7 +40,7 @@ let mapleader = ","     " comma is <leader>
 " Fast save
 nmap <leader>w :w!<cr>
 " Togle hlsearch
-map <F3> :noh<cr>
+map <F3> :set hls!<cr>
 " -------------------------------------
 
 

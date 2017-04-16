@@ -1,7 +1,8 @@
 #!/bin/bash
+cd $(dirname "$(readlink -f "$0")")
 printf "(ಠ‿ಠ)\n"
 # All non hidden files and lower case files and directories will be linked in ~/.linkname
-DOTS_DIR=$(find . -maxdepth 1  \( -type f -o -type d \) -a -name  '[!{.,{A..W},{Y..Z}}]*' -exec readlink -f '{}' ';')
+DOTS_DIR=$(find . -maxdepth 1  \( -type f -o -type d \) -a -name  '[!{.,{A-Z}}]*' -exec readlink -f '{}' ';')
 
 for to_link in $DOTS_DIR; do
     printf "Linking ~/.$(basename $to_link)... "
@@ -25,7 +26,7 @@ for PLUG_URL in "${VIM_PLUG_LIST[@]}"; do
     printf "Checking Vim plugin $PLUGIN_NAME: "
     if [ -d "$VIM_PLUG_DIR"/"$PLUGIN_NAME" ]; then
         cd "$VIM_PLUG_DIR"/"$PLUGIN_NAME"
-        git fetch && printf "OK (updated)\n"
+        git pull --ff -q && printf "OK (updated)\n"
         cd - >/dev/null
     else
         git clone -q --recursive "$PLUG_URL" "$VIM_PLUG_DIR"/"$PLUGIN_NAME" && printf "OK (cloned)\n"

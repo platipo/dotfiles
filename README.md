@@ -2,7 +2,7 @@
 > Just a mere backup of my aliases
 
 ### Preview
-![Alt text](https://raw.github.com/platipo/dotfiles/master/screenshot.png "screen")
+![Alt text](https://raw.github.com/platipo/dotfiles/master/Screenshot.png "screen")
 
 ### Installation
 Why install them and mess your things up when you can link them? `Magic.sh` will link all files for you
