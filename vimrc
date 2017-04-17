@@ -41,6 +41,13 @@ let mapleader = ","     " comma is <leader>
 nmap <leader>w :w!<cr>
 " Togle hlsearch
 map <F3> :set hls!<cr>
+" ^^^^^^^^^^^^^^^^^^^^
+"  Disable arrows
+" ^^^^^^^^^^^^^^^^^^^^
+noremap   <Up>     <NOP>
+noremap   <Down>   <NOP>
+noremap   <Left>   <NOP>
+noremap   <Right>  <NOP>
 " -------------------------------------
 
 
@@ -62,3 +69,4 @@ set noswapfile
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
+

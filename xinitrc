@@ -59,7 +59,7 @@ unclutter &
 #udiskie -Cva &
 
 # Shadows
-compton --config $XDG_CONFIG_HOME/compton/compton.conf -bCG # -i 0.2 &
+compton --config $XDG_CONFIG_HOME/compton/compton.conf --daemon
 
 # Custom telegram directory
 mkdir /tmp/TelegramDownloads

@@ -16,18 +16,20 @@ Also it will install minimal vim plugins in `~/.vim/bundle` like
 - [contrastneed-theme](https://github.com/albertocg/contrastneed-theme)
 
 ### Things you should install
-* [bspwm](https://github.com/baskerville/bspwm) - WM
-* [sxhkd](https://github.com/baskerville/sxhkd) - WM hotkey daemon
-* [vim](https://github.com/vim/vim) - editor
-* [redshift](https://github.com/jonls/redshift) - screen color temperature regulator 
-* [rofi](https://github.com/DaveDavenport/rofi) - window switcher and application launcher
-* [zathura](https://github.com/pwmt/zathura) - PDF viewer
-* [compton](https://github.com/chjj/compton) - compositor
-* [polybar](https://github.com/jaagr/polybar) - status bar
-* [ranger](https://github.com/ranger/ranger) - console filemanager
-* [termite](https://github.com/thestinger/termite) - terminal
-* [i3block](https://github.com/karulont/i3lock-blur/) - simple screen locker
-* [feh](https://github.com/derf/feh) - image viewer
+| Application | Description |
+|-------------|-------------|
+| [bspwm](https://github.com/baskerville/bspwm) | WM |
+| [sxhkd](https://github.com/baskerville/sxhkd) | WM hotkey daemon |
+| [vim](https://github.com/vim/vim) | editor |
+| [redshift](https://github.com/jonls/redshift) | screen color temperature regulator  |
+| [rofi](https://github.com/DaveDavenport/rofi) | window switcher and application launcher |
+| [zathura](https://github.com/pwmt/zathura) | PDF viewer |
+| [compton](https://github.com/chjj/compton) | compositor |
+| [polybar](https://github.com/jaagr/polybar) | status bar |
+| [ranger](https://github.com/ranger/ranger) | console filemanager |
+| [termite](https://github.com/thestinger/termite) | terminal |
+| [i3block](https://github.com/karulont/i3lock-blur/) | simple screen locker |
+| [feh](https://github.com/derf/feh) | image viewer |
 
 ### TODO
 - [x] decent polybar (credits to [jaagr](https://github.com/jaagr/dots/tree/master/.local/etc/themer/themes/dracula))
