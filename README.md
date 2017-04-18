@@ -15,6 +15,15 @@ Also it will install minimal vim plugins in `~/.vim/bundle` like
 - [indentline](https://github.com/Yggdroot/indentLine)
 - [contrastneed-theme](https://github.com/albertocg/contrastneed-theme)
 
+If you like to add some padding around the terminal edges (like in the screenshot), just add 
+```
+VteTerminal, vte-terminal {
+    padding: 33px;
+}
+```
+in `$XDG_CONFIG_HOME/gtk-3.0/gtk.css` ([source](https://github.com/thestinger/termite/#padding))
+
+
 ### Things you should install
 | Application | Description |
 |-------------|-------------|
@@ -30,6 +39,7 @@ Also it will install minimal vim plugins in `~/.vim/bundle` like
 | [termite](https://github.com/thestinger/termite) | terminal |
 | [i3block](https://github.com/karulont/i3lock-blur/) | simple screen locker |
 | [feh](https://github.com/derf/feh) | image viewer |
+| [arc-theme](https://github.com/horst3180/Arc-theme) | GTK theme |
 
 ### TODO
 - [x] decent polybar (credits to [jaagr](https://github.com/jaagr/dots/tree/master/.local/etc/themer/themes/dracula))
