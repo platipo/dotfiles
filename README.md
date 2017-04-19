@@ -16,7 +16,7 @@ Also it will install minimal vim plugins in `~/.vim/bundle` like
 - [contrastneed-theme](https://github.com/albertocg/contrastneed-theme)
 
 If you like to add some padding around the terminal edges (like in the screenshot), just add 
-```
+```css
 VteTerminal, vte-terminal {
     padding: 33px;
 }

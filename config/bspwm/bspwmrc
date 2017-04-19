@@ -1,5 +1,5 @@
 #!/bin/env sh
-if [[ -e "$BSPWM_STATE" ]] ; then
+if [ -e "$BSPWM_STATE" ] ; then
     #pgrep polybar && pkill -SIGNTERM polybar
     #pgrep sxhkd && pkill -SIGTERM sxhkd
     bspc wm --load-state "$BSPWM_STATE" && rm "$BSPWM_STATE"
@@ -12,7 +12,7 @@ else
     xautolock -locknow
 fi
 
-[[ -z "$(pidof sxhkd)" ]] && sxhkd -c $XDG_CONFIG_HOME/sxhkd/sxhkdrc &
+[ -z "$(pidof sxhkd)" ] && sxhkd -c $XDG_CONFIG_HOME/sxhkd/sxhkdrc &
 
 # sed captures all non digit characters
 DISP_X="$(xrandr -q | awk -F' ' '{ if (NR == 1) print $8}' | sed 's/[^0-9]//g')"
@@ -56,4 +56,4 @@ bspc rule -a rofi state=floating follow=on
 bspc rule -a Zathura state=tiled
 bspc rule -a vivaldi-stable desktop=^1
 
-[[ -z "$(pidof polybar)" ]] && $XDG_CONFIG_HOME/polybar/launch.sh
+[ -z "$(pidof polybar)" ] && $XDG_CONFIG_HOME/polybar/launch.sh

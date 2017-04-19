@@ -1,12 +1,43 @@
 #!/bin/bash
+echo "(ಠ‿ಠ)"
+
+function write_screen_conf {
+    cat << EOF > $SAVECONF
+OUT=$primary_out
+X=$primary_X
+Y=$primary_Y
+EOF
+}
+
 cd $(dirname "$(readlink -f "$0")")
-printf "(ಠ‿ಠ)\n"
+SAVECONF=".screen.conf"
+
+screen_out="$(xrandr | grep -E " connected primary [1-9]+")"
+primary_out="$(echo $screen_out | sed -e "s/\([a-zA-Z0-9]\+\) connected.*/\1/")"
+primary_X="$(echo $screen_out | sed -e "s/\([a-zA-Z0-9]\+\) connected.* \([0-9]\+\)x\([0-9]\+\).*/\2/")"
+primary_Y="$(echo $screen_out | sed -e "s/\([a-zA-Z0-9]\+\) connected.* \([0-9]\+\)x\([0-9]\+\).*/\3/")"
+if [ -s "$SAVECONF" ]; then
+    source  $SAVECONF
+    if [ $OUT != $primary_out ] || [ $X != $primary_X ] || [ $Y != $primary_Y ]; then
+        write_screen_conf
+        source $SAVECONF
+        for paramteric in $(find . -type f -name *parametric.sh); do
+            sh $paramteric $OUT $X $Y
+        done
+    fi
+else
+    write_screen_conf
+    echo "Saved primary screen configuration in `pwd`/$SAVECONF"
+fi
+unset screen_out primary_XY primary_out OUT X Y
+source $SAVECONF
+echo -e "primary $OUT\n\tX:$X\n\tY:$Y"
+
 # All non hidden files and lower case files and directories will be linked in ~/.linkname
 DOTS_DIR=$(find . -maxdepth 1  \( -type f -o -type d \) -a -name  '[!{.,{A-Z}}]*' -exec readlink -f '{}' ';')
-
 for to_link in $DOTS_DIR; do
     printf "Linking ~/.$(basename $to_link)... "
-    if [[ -e ~/.$(basename $to_link) ]]; then
+    if [ -e ~/.$(basename $to_link) ]; then
         printf "already OK\n"
         exit_code=1
     else
@@ -33,4 +64,6 @@ for PLUG_URL in "${VIM_PLUG_LIST[@]}"; do
     fi
 done
 
+#rm $SAVECONF
+echo "X=2" >> $SAVECONF
 exit $exit_code
