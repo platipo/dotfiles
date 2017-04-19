@@ -44,8 +44,6 @@ in `$XDG_CONFIG_HOME/gtk-3.0/gtk.css` ([source](https://github.com/thestinger/te
 ### TODO
 - [x] decent polybar (credits to [jaagr](https://github.com/jaagr/dots/tree/master/.local/etc/themer/themes/dracula))
 - [x] vim & vimrc (sort of)
-- [x] finish bspwm conf (again sort of)
-- [x] bspwm reaload on the fly
 - [x] implement sxhkdrc
 - [ ] ranger
 - [ ] decent README

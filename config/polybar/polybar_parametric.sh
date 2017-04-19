@@ -1,14 +1,22 @@
+#!/bin/bash
+cd $(dirname "$(readlink -f "$0")")
+echo "Activate `basename $0`"
+OUT=$1
+X=$2
+Y=$3
+
+cat << EOF > config
 [settings]
 throttle-ms = 50
 throttle-limit = 5
 
 [bar/top]
-#monitor = eDP-1
+monitor = $OUT
 width = 100%
 height = 35
 offset-y = 5
 
-# prevent bar appearing above fullscreen windows
+; prevent bar appearing above fullscreen windows
 override-redirect = true
 
 background = #005f627a
@@ -199,3 +207,4 @@ type = internal/xwindow
 label-font = 3
 
 ; vim:ft=dosini
+EOF

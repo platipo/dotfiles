@@ -12,26 +12,35 @@ EOF
 cd $(dirname "$(readlink -f "$0")")
 SAVECONF=".screen.conf"
 
+conf_change=0
 screen_out="$(xrandr | grep -E " connected primary [1-9]+")"
 primary_out="$(echo $screen_out | sed -e "s/\([a-zA-Z0-9]\+\) connected.*/\1/")"
 primary_X="$(echo $screen_out | sed -e "s/\([a-zA-Z0-9]\+\) connected.* \([0-9]\+\)x\([0-9]\+\).*/\2/")"
 primary_Y="$(echo $screen_out | sed -e "s/\([a-zA-Z0-9]\+\) connected.* \([0-9]\+\)x\([0-9]\+\).*/\3/")"
+# saved config exists and non empty?
 if [ -s "$SAVECONF" ]; then
     source  $SAVECONF
+    # check if paramters have changed
     if [ $OUT != $primary_out ] || [ $X != $primary_X ] || [ $Y != $primary_Y ]; then
         write_screen_conf
-        source $SAVECONF
-        for paramteric in $(find . -type f -name *parametric.sh); do
-            sh $paramteric $OUT $X $Y
-        done
+        conf_chage=1
     fi
 else
+    # if it's non existent, create new one
     write_screen_conf
     echo "Saved primary screen configuration in `pwd`/$SAVECONF"
+    conf_chage=1
 fi
-unset screen_out primary_XY primary_out OUT X Y
-source $SAVECONF
-echo -e "primary $OUT\n\tX:$X\n\tY:$Y"
+unset screen_out primary_XY primary_out
+# if new setup or some changes are detected generate new config
+if [ ! -z ${conf_chage} ]; then
+    source $SAVECONF
+    echo -e "detected primary monitor $OUT\n\tX:$X\n\tY:$Y"
+    for paramteric in $(find . -type f -name *parametric.sh); do
+        sh $paramteric $OUT $X $Y
+    done
+fi
+unset OUT X Y conf_chage
 
 # All non hidden files and lower case files and directories will be linked in ~/.linkname
 DOTS_DIR=$(find . -maxdepth 1  \( -type f -o -type d \) -a -name  '[!{.,{A-Z}}]*' -exec readlink -f '{}' ';')
@@ -65,5 +74,5 @@ for PLUG_URL in "${VIM_PLUG_LIST[@]}"; do
 done
 
 #rm $SAVECONF
-echo "X=2" >> $SAVECONF
+#echo "X=2" >> $SAVECONF
 exit $exit_code
