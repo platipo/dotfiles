@@ -57,7 +57,7 @@ compton --config $XDG_CONFIG_HOME/compton/compton.conf --daemon
 redshift -c $XDG_CONFIG_HOME/redshift/redshift.conf &
 
 # sleep after 10 minutes of inactivity
-xautolock -time 10 -locker "i3lock -f -e -r 8 -s 25" -detectsleep &
+xautolock -time 10 -locker "i3lock -f -e" -detectsleep &
 
 # Automaic mount USB drives
 #udiskie -Cva &

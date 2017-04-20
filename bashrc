@@ -3,7 +3,10 @@
 #
 
 # If not running interactively, don't do anything
-[ $- != *i* ] && return
+case $- in
+    *i*) ;;
+    *) return;;
+esac
 
 # [ $DISPLAY ] && shopt -s checkwinsize
 shopt -s checkwinsize
