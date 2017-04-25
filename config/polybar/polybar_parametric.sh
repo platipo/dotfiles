@@ -33,14 +33,14 @@ module-margin-left = 0
 module-margin-right = 2
 
 font-0 = "Noto Sans:weight=bold:size=12;0"
-font-1 = "FontAwesome:size=8;2"
+font-1 = "FontAwesome:size=12;3"
 font-2 = " ypn envypn:size=22;1"
 font-3 = "Misc Termsynu:size=13;1"
 font-4 = "Unifont:size=10;-1"
 
 modules-left = bspwm
 ;modules-center = xwindow
-modules-right = volume cpu memory battery clock
+modules-right = volume wireless cpu memory battery clock
 
 [module/bspwm]
 type = internal/bspwm
@@ -88,10 +88,10 @@ format-charging-underline = #ff9d52
 format-charging-overline = #ff9d52
 format-charging-padding = 2
 format-discharging = <label-discharging>
-format-discharging-background = #cc6667
+format-discharging-background = #de4b46
 format-discharging-foreground = #efd1d1
-format-discharging-underline = #d68485
-format-discharging-overline = #d68485
+format-discharging-underline = #e15d58
+format-discharging-overline = #e15d58
 format-discharging-padding = 2
 format-full = <label-full>
 format-full-background = #ecd620
@@ -205,6 +205,28 @@ label-muted-font = 3
 [module/xwindow]
 type = internal/xwindow
 label-font = 3
+
+[module/wireless]
+type = internal/network
+interface = wlp2s0
+
+format-connected = <label-connected>
+format-connected-background = #eaeaea
+format-connected-foreground = #0c0c0c
+format-connected-underline = #ececec
+format-connected-overline = #ececec
+format-connected-padding = 2
+
+format-disconnected = <label-disconnected>
+format-disconnected-background = #0c0c0c
+format-disconnected-foreground = #eaeaea
+format-disconnected-underline = #0e0e0e
+format-disconnected-overline = #0e0e0e
+format-disconnected-padding = 2
+
+label-connected =  
+label-disconnected =  
+label-font = 2
 
 ; vim:ft=dosini
 EOF

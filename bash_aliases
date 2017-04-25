@@ -14,3 +14,5 @@ alias grep='grep --color'
 alias wifi-reload='sudo systemctl restart netctl-auto@wlp2s0'
 
 alias vi='vim'
+
+# vim:ft=sh

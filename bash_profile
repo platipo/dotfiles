@@ -13,3 +13,5 @@ if [[ -f ~/.bashrc ]]; then
    # export for bspwm reloading
    export BSPWM_STATE=/tmp/bspwm-state.json
 fi
+
+# vim:ft=sh

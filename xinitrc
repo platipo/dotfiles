@@ -72,3 +72,5 @@ mkdir /tmp/TelegramDownloads
 #[ ! -s ~/.mpd/mpd.pid ] && mpd $HOME/.config/mpd/mpd.conf
 
 exec bspwm -c $XDG_CONFIG_HOME/bspwm/bspwmrc
+
+# vim:ft=sh

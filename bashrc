@@ -56,3 +56,5 @@ if [ $TERM == "xterm-termite" ]; then
 fi
 PROMPT_COMMAND=ps1_prompt
 #export PS1
+
+# vim:ft=sh
