@@ -17,6 +17,7 @@ height = 35
 offset-y = 5
 
 ; prevent bar appearing above fullscreen windows
+wm-restack = bspwm
 override-redirect = true
 
 background = #005f627a
