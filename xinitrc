@@ -21,7 +21,7 @@ unclutter &
 # i- disable for x second(s) after last keypress
 # k- ignore modifier keys (i.e. control left click)
 # t- only disable scrolling and clicking
-syndaemon -k -i 1 -d &
+#syndaemon -k -i 1 -d &
 
 n_monitor=$(($(xrandr --listmonitors | wc -l) -1))
 # needed on my dual monitor workstation
@@ -66,11 +66,10 @@ xautolock -time 10 -locker "i3lock -f -e" -detectsleep &
 caffeine &>/dev/null &
 
 # Custom telegram directory
-mkdir /tmp/TelegramDownloads
+mkdir -p /tmp/TelegramDownloads
 
-# MPD daemon start (if no other user instance exists)
-#[ ! -s ~/.mpd/mpd.pid ] && mpd $HOME/.config/mpd/mpd.conf
-
-exec bspwm -c $XDG_CONFIG_HOME/bspwm/bspwmrc
+# arduino
+export _JAVA_AWT_WM_NONREPARENTING=1
+exec i3
 
 # vim:ft=sh
